@@ -18,7 +18,7 @@ public class Actor{
 
     }
     public String toString(){
-    return "Actor Names:  " + actorName + " in the role as:  " + actorRoles;
+    return "Actor Name:  " + actorName + " in the role as:  " + actorRoles;
     }
 
     

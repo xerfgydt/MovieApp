@@ -1,5 +1,0 @@
-name code
-patrick 52
-simon 52
-ku nm
-simon 123

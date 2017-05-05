@@ -31,10 +31,13 @@ public class Customer implements java.io.Serializable{
         return favoriteList;
     }
 
+//PLAY MOVIE!!!!!!!!
     public void play(Movie movie, Customer c){
         
         if(movie == null){
-             System.out.println("we dont have that movie");
+            System.out.println();
+             System.out.println("No Result");
+              System.out.println();
         }
         else{
 
@@ -43,6 +46,13 @@ public class Customer implements java.io.Serializable{
         String play = scan.nextLine();
             if (play.equals("y")){        
                 c.getHistoryList().add(movie);
+
+                System.out.println("");
+                System.out.println("THE END");
+                System.out.println("Actors in the Movie");
+                System.out.println(movie.getActorList());
+                System.out.println("");
+                System.out.println("");
                 System.out.println("Do you wanna add this movie to your favoriteList y/n");
                 String addToFavorite = scan.nextLine(); 
                 if (addToFavorite.equals("y")){
@@ -58,6 +68,7 @@ public class Customer implements java.io.Serializable{
             System.out.println();
             System.out.println("NR: " + i);
             System.out.println(c.getFavoriteList().get(i));
+            System.out.println("----------------------------------");
         }
             if (c.getFavoriteList().size() < 1){
         System.out.println();
@@ -89,6 +100,7 @@ public class Customer implements java.io.Serializable{
         for(int i = 0; i < c.getHistoryList().size(); i++) {
             System.out.println("NR: " + i);
             System.out.println(c.getHistoryList().get(i));
+            System.out.println("----------------------------------");
         }  
             if (c.getHistoryList().size() > 0){
         System.out.println("Do you want to clear your historyList? y/n");
@@ -99,7 +111,7 @@ public class Customer implements java.io.Serializable{
             }
             else {
                 System.out.println();
-                System.out.println("You have no movies on your historyList");
+                System.out.println("Your historyList is Empty");
                 System.out.println();
             }
     } 

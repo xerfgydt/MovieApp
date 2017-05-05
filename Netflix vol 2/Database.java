@@ -114,8 +114,12 @@ public class Database{
     public void deleteMovie(){
         
         for(int i = 0; i < movieList.size(); i++) {
+            
             System.out.println("NR: " + i);
             System.out.println(movieList.get(i));
+      
+
+
         }        
                 
         System.out.println("which movie");
@@ -126,8 +130,11 @@ public class Database{
     public void displayMovieList(){
         
         for(int i = 0; i < movieList.size(); i++) {
+            System.out.println();
             System.out.println("NR: " + i);
+            // System.out.println("----------------------------------");
             System.out.println(movieList.get(i));
+            System.out.println("----------------------------------");
         }
     }
 //REGISTER METODE

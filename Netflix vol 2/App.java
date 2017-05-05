@@ -30,13 +30,15 @@ public class App{
                     String userName;
                     String code;
                     
-                    do{
+       
                         System.out.println("Enter UserName?");
                         userName = scan.nextLine();
                         System.out.println("Enter code?");
                         code = scan.nextLine();
-                    }
-                    while (d.login(userName, code) == null);    
+                 
+                    if(d.login(userName, code) == null){
+                        break;
+                    }    
                     
                     app.userOption(d.login(userName, code));                                     
 
@@ -53,7 +55,7 @@ public class App{
                         userInput = scan.nextLine();
                         switch(userInput){
                 
-                //LOGIN MENU - Login Option
+                //MAIN MENU - Main Menu Options
                             case "1":
                                 c.play(d.searchForMovie(), d.login(userName, code));
                                 // d.addFavouriteListFile(d.login(userName, code));
@@ -96,8 +98,7 @@ public class App{
 
                             // ADMIN OPTION - Create Movie
                             case "1":
-                                d.setMovieList(m.getActorList());
-                                m.setActorlist();
+                                d.setMovieList();
                             break;
 
                             // ADMIN OPTION - delete movie

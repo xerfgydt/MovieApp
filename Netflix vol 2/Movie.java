@@ -6,7 +6,7 @@ public class Movie implements java.io.Serializable{
     private String title;
     private String genre;
     private int year;
-    private ArrayList<Actor> actorList = new ArrayList<Actor>();
+    private ArrayList<Actor> actorList;
 
     public Movie(String title, String genre, int year, ArrayList<Actor> actorList){
         this.title = title;
@@ -27,18 +27,6 @@ public class Movie implements java.io.Serializable{
         return year;
     }
 
-    public void setActorlist(){            
-        Scanner scan = new Scanner(System.in);
-            System.out.println("How many Actors?");
-            int actorAmount = scan.nextInt();                
-                for(int i = 0; i < actorAmount; i++){
-                    System.out.println("Actor Name?"); 
-                    String name = System.console().readLine();
-                    System.out.println("Role?");
-                    String role = System.console().readLine();
-                    actorList.add(new Actor(name, role));
-                }
-    }
 
     public ArrayList<Actor> getActorList(){
          return actorList;

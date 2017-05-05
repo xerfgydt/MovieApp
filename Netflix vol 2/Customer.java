@@ -33,6 +33,11 @@ public class Customer implements java.io.Serializable{
 
     public void play(Movie movie, Customer c){
         
+        if(movie == null){
+             System.out.println("we dont have that movie");
+        }
+        else{
+
         Scanner scan = new Scanner(System.in);
         System.out.println("Do you wanna watch this movie: y/n");
         String play = scan.nextLine();
@@ -43,7 +48,8 @@ public class Customer implements java.io.Serializable{
                 if (addToFavorite.equals("y")){
                     c.getFavoriteList().add(movie);
                 }              
-            }      
+            }   
+        }   
     }
 
     public void displayFavoriteList(Customer c){

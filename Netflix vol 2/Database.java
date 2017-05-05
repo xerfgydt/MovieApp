@@ -67,7 +67,9 @@ public class Database{
         }
     }
 // ADD NEW MOVIE TO MOVIE LIST METODE 
-    public void setMovieList(ArrayList<Actor> actorList){
+    public void setMovieList(){
+
+        ArrayList<Actor> actorList = new ArrayList<Actor>(); 
         
         Scanner scan = new Scanner(System.in);
             System.out.println("Title?");
@@ -76,6 +78,17 @@ public class Database{
             String genre = scan.nextLine();
             System.out.println("Year?");
             int year = scan.nextInt();
+            
+            System.out.println("How many Actors?");
+            int actorAmount = scan.nextInt();                
+                for(int i = 0; i < actorAmount; i++){
+                    System.out.println("Actor Name?"); 
+                    String name = System.console().readLine();
+                    System.out.println("Role?");
+                    String role = System.console().readLine();
+                    actorList.add(new Actor(name, role));
+                }
+    
         movieList.add(new Movie(title, genre, year, actorList));
     }
 // SEARCH FOR MOVIE METODE
@@ -88,8 +101,13 @@ public class Database{
                     System.out.println(movie);
                     return movie;
                 }
+                else if(movie.getGenre().contains(search)){
+                    System.out.println(movie);
+                    return movie;
+                }
+
             }
-            System.out.println("We dont have that movie");
+         
             return null;
     }
 // DELETE MOVIE METODE
@@ -113,20 +131,26 @@ public class Database{
         }
     }
 //REGISTER METODE
-    public void register(){
+public String register(){
 
-        try{
             Scanner scan = new Scanner(System.in);
                     
             System.out.println("UserName?");
             String userName = scan.nextLine();
             System.out.println("Code?");
             String code = scan.nextLine();
+            
+            for (Customer c : customerList){
+                if (userName.equals(c.getUserName())){
+                    System.out.println();
+                    System.out.println("username is already in use!");
+                    return null;
+                }
+            }    
             customerList.add(new Customer(userName,code));
-        }catch(Exception e)
-        {
-        System.out.println(e);
-        }
+            System.out.println();
+            System.out.println("your registration was succesful!");
+            return null;
     }
 // LOGIN METODE
     public Customer login(String userName, String code){       
@@ -136,7 +160,7 @@ public class Database{
                 return c;
             }
         }
-        System.out.println("Please try again");
+        System.out.println("UserName or Password was incorrect");
         return null;
     }    
 
